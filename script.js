@@ -76,7 +76,6 @@ RESTART_BUTTON.addEventListener('click', () => {
 
 async function init() {
   word = await getWord()
-  console.log(word)
 }
 
 async function getWord() {
