@@ -1,0 +1,135 @@
+:root {
+  --primary-color: #0CBABA;
+  --success-color: #79b851;
+  --fail-color: #f3c237;
+  --neutral-color: #a4aec4;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  height: 100vh;
+}
+
+main {
+  display: grid;
+  justify-items: center;
+}
+
+sub {
+  margin-top: .5rem;
+}
+
+dialog {
+  border-radius: .5rem;
+  border-width: 2px;
+}
+
+dialog::backdrop {
+  background-color: rgba(250, 250, 250, .5);
+  backdrop-filter: blur(3px);
+}
+
+label {
+  margin-bottom: .7rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  font-weight: bolder;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+button:hover::before {
+  opacity: 0.2;
+}
+
+button:active::before {
+  opacity: 0.5;
+}
+
+.success {
+  border-color: green;
+  color: yellowgreen;
+}
+
+.fail {
+  border-color: goldenrod;
+  color: orange;
+}
+
+#input-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: 1px solid;
+}
+
+#guess-input {
+  font-size: 3rem;
+  letter-spacing: .5rem;
+  width: calc(5ch + (.5rem * 4) + (1rem * 2));
+  text-align: center;
+  padding: .1rem 1rem;
+  font-variant: small-caps;
+  border: none;
+}
+
+#guess-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+#error {
+  color: red;
+  font-weight: bold;
+}
+
+#error:empty {
+  display: none;
+}
+
+#restart-button {
+  float: right;
+  background-color: transparent;
+  border: inherit;
+  color: inherit;
+  padding: .5rem;
+  border-radius: 1rem;
+  min-width: 7rem;
+}
+
+.letter {
+  border: 1px solid black;
+  padding: 3px;
+  margin: 3px;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.input-area {
+  margin: 30px;
+}

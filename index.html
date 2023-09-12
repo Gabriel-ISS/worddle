@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worddle game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <h1>WORDDLE GAME</h1>
+    <label for="guess-input">Agrega una palabra con 5 caracteres</label>
+    <div id="input-container">
+      <input type="text" id="guess-input" tabindex="0" autofocus>
+      <button id="guess-button">Adivinar</button>
+    </div>
+    <p id="error"></p>
+    <h2>Intentos restantes: <b id="remaining-attempts">6</b></h2>
+    <div id="grid"></div>
+    <dialog id="modal">
+      <div id="modal-content"></div>
+      <button id="restart-button">🔄️ Reiniciar</button>
+    </dialog>
+  </main>
+</body>
+
+</html>
