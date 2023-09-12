@@ -1,8 +1,3 @@
-/**
- * Eliminar logs
- */
-
-
 class Validator {
   constructor(word) {
     this.word = word
@@ -80,7 +75,7 @@ RESTART_BUTTON.addEventListener('click', () => {
 })
 
 async function init() {
-  //word = await getWord()
+  word = await getWord()
   console.log(word)
 }
 
