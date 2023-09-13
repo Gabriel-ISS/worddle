@@ -3,6 +3,12 @@
   --success-color: #79b851;
   --fail-color: #f3c237;
   --neutral-color: #a4aec4;
+  --error-color: red;
+
+  --text-color: black;
+  --bg-color: 225, 225, 225;
+  --bg-color2: 225, 225, 225;
+  --inner-shadow: rgb(3, 192, 192);
 }
 
 body {
@@ -11,6 +17,8 @@ body {
   place-items: center;
   min-height: 100dvh;
   height: 100vh;
+  color: var(--text-color);
+  background-color: rgb(var(--bg-color));
 }
 
 main {
@@ -18,17 +26,14 @@ main {
   justify-items: center;
 }
 
-sub {
-  margin-top: .5rem;
-}
-
 dialog {
   border-radius: .5rem;
   border-width: 2px;
+  background-color: rgb(var(--bg-color));
 }
 
 dialog::backdrop {
-  background-color: rgba(250, 250, 250, .5);
+  background-color: rgba(--bg-color, .5);
   backdrop-filter: blur(3px);
 }
 
@@ -49,7 +54,7 @@ button::before {
   display: block;
   position: absolute;
   inset: 0;
-  background-color: black;
+  background-color: rgb(var(--bg-color));
   opacity: 0;
   transition: opacity 200ms;
 }
@@ -59,23 +64,14 @@ button:hover::before {
 }
 
 button:active::before {
-  opacity: 0.5;
-}
-
-.success {
-  border-color: green;
-  color: yellowgreen;
-}
-
-.fail {
-  border-color: goldenrod;
-  color: orange;
+  opacity: 0.4;
 }
 
 #input-container {
   display: grid;
   grid-template-columns: auto 1fr;
   border: 1px solid;
+  background-color: rgb(var(--bg-color2));
 }
 
 #guess-input {
@@ -86,20 +82,28 @@ button:active::before {
   padding: .1rem 1rem;
   font-variant: small-caps;
   border: none;
+  background-color: rgb(var(--bg-color2));
+  color: var(--text-color);
+  outline: none;
+}
+
+#guess-input:focus {
+  box-shadow: inset 0px 0px 7px 0px var(--inner-shadow)
 }
 
 #guess-button {
   display: block;
   margin: 0 auto;
-  padding: 10px 20px;
-  font-size: 18px;
+  padding: .7rem 1.4rem;
+  font-size: 1.3rem;
   background-color: var(--primary-color);
-  color: #fff;
+  color: white;
   border: none;
+  outline: none;
 }
 
 #error {
-  color: red;
+  color: var(--error-color);
   font-weight: bold;
 }
 
@@ -117,19 +121,45 @@ button:active::before {
   min-width: 7rem;
 }
 
+.success {
+  border-color: green;
+  color: yellowgreen;
+}
+
+.fail {
+  border-color: goldenrod;
+  color: orange;
+}
+
 .letter {
-  border: 1px solid black;
-  padding: 3px;
-  margin: 3px;
-  min-width: 20px;
+  border: 1px solid var(--text-color);
+  padding: .3rem;
+  margin: .3rem;
+  min-width: 1.2rem;
+  font-weight: bold;
   text-align: center;
   display: inline-block
 }
 
 .row {
-  margin-bottom: 10px;
+  margin-bottom: 0.3rem;
 }
 
-.input-area {
-  margin: 30px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #0ba4a4;
+    --success-color: #659b44;
+    --fail-color: #cda22e;
+    --neutral-color: #828a9b;
+    --error-color: tomato;
+
+    --text-color: lightgray;
+    --bg-color: 0, 0, 0;
+    --bg-color2: 35, 35, 35;
+    --inner-shadow: darkcyan;
+  }
+
+  #input-container {
+    border: none;
+  }
 }
